@@ -1,0 +1,40 @@
+
+services:
+  moznitor:
+    build: .
+    volumes:
+      - ./samples/moznitor.ini:/opt/app/moznitor.ini:ro
+    networks:
+      - backend-net
+
+  node-1:
+    image: lipanski/docker-static-website:latest
+    restart: always
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./samples/status.sample.1.json:/home/static/status.json:ro
+    networks:
+      - backend-net
+  node-2:
+    image: lipanski/docker-static-website:latest
+    restart: always
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./samples/status.sample.2.json:/home/static/status.json:ro
+    networks:
+      - backend-net
+  node-3:
+    image: lipanski/docker-static-website:latest
+    restart: always
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./samples/status.sample.3.json:/home/static/status.json:ro
+    networks:
+      - backend-net
+
+networks:
+  backend-net:
+    internal: true

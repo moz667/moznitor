@@ -1,0 +1,12 @@
+[
+    {
+        "service": "Servicio 1",
+        "status": "OK",
+        "last-check": "2024-09-16 06:41:23"
+    },
+    {
+        "service": "Servicio 2",
+        "status": "KO",
+        "last-check": "2024-09-16 06:41:24"
+    }
+]
